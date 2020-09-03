@@ -1,0 +1,6 @@
+requests==2.24.0
+discord==1.0.1
+Flask==1.1.2
+flask_session==0.3.2
+gspread==3.6.0
+oauth2client==4.1.3
