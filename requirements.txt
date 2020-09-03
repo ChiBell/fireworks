@@ -1,6 +1,13 @@
+certifi==2020.6.20
+chardet==3.0.4
+docopt==0.6.2
+idna==2.10
+pipreqs==0.4.10
 requests==2.24.0
+urllib3==1.25.10
+yarg==0.1.9
 discord==1.0.1
 Flask==1.1.2
-flask_session==0.3.2
+Flask-Session==0.3.2
 gspread==3.6.0
 oauth2client==4.1.3
