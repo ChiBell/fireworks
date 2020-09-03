@@ -1,0 +1,48 @@
+<!-- Generic.html comes from a website created using WordPress and Stargazer -->
+{% extends 'generic.html' %}
+
+{% block title%}Pre Order Form{% endblock %}
+
+{% block main %}
+    <form action="/" method='POST'>
+        <table class="center", style="background-color: #FFFFFF;">
+            {% for i in range(LENGTH) %}
+                {% if max[i] > 0 %}
+                    <tbody>
+                        <tr>
+                            <th>{{ sheet[i]['Firework name'] }}</th>
+                            <th>{{ sheet[i]['Firework price'] }}</th>
+                        </tr>
+                        <tr>
+                            {% if sheet[i]['Firework video'] != '\n' %}
+                                <td><img src={{ sheet[i]['Firework picture'] }} width='320' height="240"></td>
+                                <td> 
+                                    <video width='320' height="240" controls>
+                                        <source src={{ sheet[i]['Firework video'] }} type='video/mp4'>
+                                    </video>
+                                </td>
+                            {% else %}
+                                <td><img src={{ sheet[i]['Firework picture'] }} width='320' height="240" style="margin-left: 50%;"></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>How many do you want?
+                                <input class='count' type="number" id={{i}} name={{i}} min='0' max={{ max[i] }} style="margin-bottom: 25px; margin-left: 93%;">
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                {% endif %}
+            {% endfor %}
+
+        </table>
+        <div style='text-align: center;'>
+            <input type="text" name="name" placeholder="Order Name" required>
+        </div>
+        <div style="text-align: center;">
+            <button onclick="test()">Review Order</button>
+        </div>
+    </form>
+
+{% endblock %}

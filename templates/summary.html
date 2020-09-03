@@ -1,0 +1,48 @@
+{% extends 'generic.html' %}
+
+{% block title%}Order Summary{% endblock %}
+
+{% block main %}
+    <h1>
+        Order name: {{ name }}
+    </h1>
+
+
+    <table style="text-align: center; vertical-align: middle; width: 55%; margin-left: auto; margin-right: auto; border: 5px solid black;">
+        <tr>
+            <th>Firework Name</th>
+            <th>Number Ordered</th>
+            <th>Total Price</th>
+        </tr>
+        {% for i in range(amount) %}
+            {% if omit[i] and not mult[i] == '0.00' %}
+                <tr>
+                    <td>
+                        {{fire[i]['Firework name']}}
+                    </td>
+                    <td>
+                        {{table[i]}}
+                    </td>
+                    <td>
+                        ${{mult[i]}}
+                    </td>
+
+                </tr> 
+
+            {% endif %}
+        {% endfor %}
+        <div>
+            <tr>
+                <td><b>Order total</b></td>
+                <td></td>
+                <td style="text-align: center; font-size: larger;"><b>${{total}}</b></td>
+            </tr>
+        </div>
+    </table>
+
+    <div>
+        <form action="/receipt">
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+{% endblock %}
